@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        
+        .content {
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        table {
+            margin-top: 16px;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="/post" method="POST" enctype="multipart/form-data">
+        <input type="text" name="ma_sp" placeholder="Ma San Pham" required pattern="/^.{3,7}$/"> <br><br>
+        <input type="text" name="ten_sp" placeholder="Ten San Pham"> <br><br>
+        <input type="number" name="so_luong" placeholder="So Luong"> <br><br>
+        <input type="submit" value="Submit"> <br><br>
+    </form>
+</body>
+
+</html>

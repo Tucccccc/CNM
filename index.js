@@ -29,7 +29,7 @@ const tableName = 'Table1'
 const multer = require('multer')
 const upload = multer()
 
-app.get('/', (request, response) => {
+app.get('/show', (request, response) => {
     const params = {
         TableName: tableName,
     }
@@ -39,6 +39,20 @@ app.get('/', (request, response) => {
             response.send(err)
         } else {
             return response.render('index', { sanPhams: data.Items })
+        }
+    })
+})
+
+app.get('/', (request, response) => {
+    const params = {
+        TableName: tableName,
+    }
+
+    docClient.scan(params, (err, data) => {
+        if (err) {
+            response.send(err)
+        } else {
+            return response.render('add', { sanPhams: data.Items })
         }
     })
 })
@@ -66,7 +80,7 @@ app.post('/post', upload.fields([]), (request, response) => {
         if (err) {
             return response.send(err)
         } else {
-            return response.redirect('/')
+            return response.redirect('/show')
         }
     })
 })
