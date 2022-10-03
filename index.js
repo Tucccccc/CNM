@@ -8,20 +8,6 @@ app.use(express.static('./views'))
 app.set('view engine', 'ejs')
 app.set('views', './views')
 
-const AWS = require('aws-sdk')
-var config = new AWS.Config({
-    accessKeyId: 'AKIAZSGJBA6WNXYM2LHD',
-    secretAccessKey: '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',
-    region: 'ap-southeast-1',
-})
-AWS.config = config
-
-var dynamoDB = new AWS.DynamoDB({
-    region: 'ap-southeast-1',
-    accessKeyId: 'AKIAZSGJBA6WNXYM2LHD',
-    secretAccessKey: '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',
-});
-
 const docClient = new AWS.DynamoDB.DocumentClient()
 
 const tableName = 'Table1'
